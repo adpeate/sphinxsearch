@@ -23,6 +23,8 @@ index fulltext {
 	morphology   = stem_en
 	#wordforms    = /etc/sphinxsearch/stemmingoverride.txt
 	min_word_len = 1                               # Indexes all words
+	min_infix_len = 2
+	enable_star = 1
 	charset_type = utf-8
         # added charset_table to process umlauts etc. correctly
         # source: http://sphinxsearch.com/forum/view.html?id=19
@@ -36,7 +38,7 @@ index fulltext {
                         U+160->s, U+160->U+161, U+161->s, U+164->t, U+165->t, U+16A->U+16B, U+16B, U+16e->u, \
                         U+16f->u, U+172->U+173, U+173, U+179->U+17A, U+17A, U+17B->U+17C, U+17C, U+17d->z, \
                         U+17e->z, U+DC->U+FC, U+DF, U+FC	
-	blend_chars  = -                               # This presumes people won't type a hyphen into the search bar: quite likely
+	blend_chars  =                                # removed to allow hyphen
 	blend_mode   = trim_both                       #
 	html_strip   = 1                               # Just in case anyone tries to get clever in the admin panel and use HTML
 }

@@ -40,6 +40,13 @@ class Gfe_SphinxSearch_Model_Resource_Fulltext extends Mage_CatalogSearch_Model_
 			}
 		
             $sphinx = Mage::helper('sphinxsearch')->getSphinxAdapter();
+            
+            $firstChar = substr($queryText, 0, 1);
+			$lastChar = substr($queryText, -1, 1);
+			if($firstChar != "*")
+				$queryText = "*".$queryText;
+			if($lastChar != "*")
+				$queryText = $queryText."*";
 
             $index = Mage::getStoreConfig('sphinxsearch/server/index');
        		if (empty($index)) {
